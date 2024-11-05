@@ -1,0 +1,88 @@
+/* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.95em;
+}
+
+img {
+    border: 5px solid blue;
+    border-radius: 35px;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+figure {
+    text-align: center;
+    margin: 0;
+    background-color: #fff; /* Default light background */
+    color: #333; /* Default dark font color */
+    border: 5px solid blue;
+    padding: 10px;
+}
+
+/* Tablet Layout: Trigger at 772px */
+@media (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Circular images */
+    figure img {
+        border-radius: 50%;
+    }
+
+    /* Make the last figure span both columns */
+    .grid figure:last-child {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Remove border-radius from all images */
+    figure img {
+        border-radius: 0;
+    }
+
+    /* Set every third figure to span two columns */
+    .grid figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+}
+/* Accessibility: Disable smooth scroll for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212; /* Dark background for body */
+    }
+
+    figure {
+        background-color: #333; /* Dark background for figures */
+        color: #ffdd57; /* Light yellow-ish font color for figures */
+        border-color: black; /* Black border for figures */
+    }
+}
